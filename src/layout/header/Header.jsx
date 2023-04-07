@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 import BasketButton from './BusketButton'
 
-const Header = () => {
+const Header = ({ onShowBasket }) => {
 	return (
 		<Container>
 			<Logo>ReactMeals</Logo>
-			<BasketButton />
+			<BasketButton onShowBasket={onShowBasket} />
 		</Container>
 	)
 }

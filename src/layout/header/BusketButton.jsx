@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import { ReactComponent as BasketIcon } from '../../assets/icons/cart.svg'
 
-const BasketButton = () => {
+const BasketButton = ({ onShowBasket }) => {
 	return (
-		<StyledButton>
+		<StyledButton onClick={onShowBasket}>
 			<BasketIcon />
 			<StyledTitle>Your cart</StyledTitle>
 			<CountStyled id='counter'>0</CountStyled>
