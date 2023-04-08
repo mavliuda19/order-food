@@ -1,5 +1,5 @@
 import { Box, Modal, styled } from '@mui/material'
-import { DUMMY_MEALS } from '../meals/Meals'
+import { DUMMY_MEALS } from '../../common/utils'
 import BasketItem from './BasketItem'
 import TotalAmount from './TotalAmount'
 
