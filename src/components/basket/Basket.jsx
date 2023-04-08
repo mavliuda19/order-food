@@ -2,8 +2,10 @@ import { Box, Modal, styled } from '@mui/material'
 import { DUMMY_MEALS } from '../../common/utils'
 import BasketItem from './BasketItem'
 import TotalAmount from './TotalAmount'
+import { useSelector } from 'react-redux'
 
-const Basket = ({ onClose, open, items }) => {
+const Basket = ({ onClose, open }) => {
+	const meals = useSelector((state) => state.meals.items)
 	const style = {
 		position: 'absolute',
 		top: '50%',
@@ -21,10 +23,10 @@ const Basket = ({ onClose, open, items }) => {
 			<Box sx={style}>
 				<StyledContainer>
 					<FiwedHeightContainer>
-						{DUMMY_MEALS.map((item) => {
+						{meals.map((item) => {
 							return (
 								<BasketItem
-									key={item._id}
+									key={item.id}
 									title={item.title}
 									price={item.price}
 									amount={item.amount}

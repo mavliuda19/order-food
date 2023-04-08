@@ -2,10 +2,24 @@ import React from 'react'
 import Button from '../../UI/Button'
 import { ReactComponent as PlusIcon } from '../../../assets/icons/plus-icon.svg'
 import styled from 'styled-components'
+import { mealsSliceActions } from '../../../store/meals/MealsSlice'
+import { useDispatch } from 'react-redux'
 
-const MealItemForm = ({ id }) => {
+const MealItemForm = ({ id, title, price }) => {
+	const dispatch = useDispatch()
+	const submitHandler = (e) => {
+		e.preventDefault()
+
+		const basketItem = {
+			id,
+			price,
+			title,
+		}
+
+		dispatch(mealsSliceActions.addToBasket(basketItem))
+	}
 	return (
-		<StyledForm>
+		<StyledForm onSubmit={submitHandler}>
 			<InputContainer>
 				<label htmlFor={id}>Amount</label>
 				<StyledInput
